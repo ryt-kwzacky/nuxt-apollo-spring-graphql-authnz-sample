@@ -23,6 +23,7 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 
 	implementation("com.graphql-java-kickstart:graphql-spring-boot-starter:8.1.1")
+	runtimeOnly("com.graphql-java-kickstart:playground-spring-boot-starter:8.1.1")
 }
 
 tasks.withType<KotlinCompile> {
