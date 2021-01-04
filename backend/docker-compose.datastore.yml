@@ -1,0 +1,16 @@
+version: '3'
+services:
+    storage:
+        image: busybox
+        volumes:
+            - storage:/var/lib/mysql
+    mysql:
+        build: ./mysql/
+        environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+        volumes:
+            - storage:/var/lib/mysql
+        ports:
+            - "3306:3306"
+volumes:
+    storage:
