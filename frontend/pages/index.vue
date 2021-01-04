@@ -1,13 +1,34 @@
 <template>
-  <div>{{ bookById }}</div>
+  <div>
+    <p>{{ searchBookById }}</p>
+    <button @click="register">Register</button>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import book from '~/apollo/queries/books.gql'
+import gql from 'graphql-tag'
+
+const book = gql`
+  query {
+    searchBookById(id: "test") {
+      id
+      name
+    }
+  }
+`
+
+const register = gql`
+  mutation {
+    registerBook(name: "java book") {
+      id
+      name
+    }
+  }
+`
 
 interface DataType {
-  bookById: {
+  searchBookById: {
     id: string
     name: string
   }
@@ -16,17 +37,24 @@ interface DataType {
 export default Vue.extend({
   data(): DataType {
     return {
-      bookById: {
+      searchBookById: {
         id: '',
         name: '',
       },
     }
   },
-
   apollo: {
-    bookById: {
+    searchBookById: {
       prefetch: true,
       query: book,
+    },
+  },
+  methods: {
+    async register() {
+      const test = await this.$apollo.mutate({
+        mutation: register,
+      })
+      console.log(test)
     },
   },
 })

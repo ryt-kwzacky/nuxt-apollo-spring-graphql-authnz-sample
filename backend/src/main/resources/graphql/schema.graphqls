@@ -4,5 +4,9 @@ type Book {
 }
 
 type Query {
-    bookById(id: String): Book
+    searchBookById(id: String!): Book
+}
+
+type Mutation {
+    registerBook(name: String!): Book
 }

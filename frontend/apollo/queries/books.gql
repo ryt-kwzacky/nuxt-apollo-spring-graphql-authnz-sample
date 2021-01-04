@@ -1,5 +1,5 @@
 query {
-  bookById(id: "test") {
+  searchBookById(id: "test") {
     id
     name
   }
