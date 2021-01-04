@@ -1,10 +1,10 @@
 type Book {
-    id: String
+    id: Int
     name: String
 }
 
 type Query {
-    searchBookById(id: String!): Book
+    searchBookById(id: Int!): Book
 }
 
 type Mutation {

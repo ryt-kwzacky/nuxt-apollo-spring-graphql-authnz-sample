@@ -1,4 +1,6 @@
 package com.example.backend
 
-class Book(private val id: String, private val name: String) {
+class Book(
+    private val id: Int,
+    private val name: String) {
 }
