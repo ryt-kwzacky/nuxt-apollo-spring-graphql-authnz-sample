@@ -15,6 +15,7 @@
     "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/axios": "^5.12.2",
     "core-js": "^3.6.5",
+    "firebase": "^8.2.1",
     "graphql-tag": "^2.11.0",
     "nuxt": "^2.14.6",
     "vue-apollo": "^3.0.5"
