@@ -31,3 +31,12 @@ start-containers:
 init-development-environment:
 	$(call docker_container_up)
 	$(call initialize_database,$(DEV_DB_NAME))
+
+migration-run: ## Migrates the schema to the latest version.
+	./gradlew flywayMigrate
+
+migration-repair: ## Repairs the Flyway schema history table.
+	./gradlew flywayRepair
+
+generate-jooq: ## Generate Jooq code.
+	./gradlew generateJooq

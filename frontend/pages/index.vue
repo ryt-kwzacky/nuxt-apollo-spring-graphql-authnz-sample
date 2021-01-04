@@ -11,7 +11,7 @@ import gql from 'graphql-tag'
 
 const book = gql`
   query {
-    searchBookById(id: "test") {
+    searchBookById(id: 1) {
       id
       name
     }
@@ -20,7 +20,7 @@ const book = gql`
 
 const register = gql`
   mutation {
-    registerBook(name: "java book") {
+    registerBook(name: "test5") {
       id
       name
     }
