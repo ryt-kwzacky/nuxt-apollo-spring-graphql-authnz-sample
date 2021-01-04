@@ -25,12 +25,15 @@
     },
     "types": [
       "@types/node",
-      "@nuxt/types"
+      "@nuxt/types",
+      "vue-apollo"
     ]
   },
   "exclude": [
     "node_modules",
     ".nuxt",
     "dist"
-  ]
+  ],
+  "files": ["types/shims-gql.d.ts"],
+  "include": ["apollo/queries/*.gql", "apollo/queries/**/*.gql"]
 }

@@ -1,0 +1,13 @@
+# Properties to use in application source files.
+application:
+  url:
+    frontend-application-base-url: ${APPLICATION_URL_FRONTEND_APPLICATION_BASE_URL:http://localhost:3000}
+    backend-file-application-base-url: ${APPLICATION_URL_BACKEND_FILE_APPLICATION_BASE_URL:}
+  # Property to use in Spring Security.
+  security:
+    # カンマ繋ぎで複数指定することができるが、現時点で複数指定しているのは開発環境のみ。
+    # localhostの各portはそれぞれ以下のフロントエンドAPPのもの。
+    #
+    # localhost:7000 : frontend-admin
+    # localhost:8000 : frontend-main
+    allowed-frontend-domain: ${APPLICATION_SECURITY_ALLOWED_FRONTEND_DOMAIN:http://localhost:7000,http://localhost:3000}

@@ -1,8 +1,8 @@
 type Book {
-    id: ID
+    id: String
     name: String
 }
 
 type Query {
-    bookById(id: ID): Book
+    bookById(id: String): Book
 }
