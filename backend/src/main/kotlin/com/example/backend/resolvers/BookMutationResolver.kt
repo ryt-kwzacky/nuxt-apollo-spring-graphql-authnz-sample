@@ -25,4 +25,13 @@ class BookMutationResolve(
             .execute()
         return Book(999, name) // TODO: GraphQLで返り値付与しない方法調べる
     }
+
+    fun updateBook(id: Int, name: String): Book {
+        dslContext
+            .update(BOOKS)
+            .set(BOOKS.NAME, name)
+            .where(BOOKS.ID.eq(id))
+            .execute()
+        return Book(9999, name) // TODO: GraphQLで返り値付与しない方法調べる
+    }
 }
