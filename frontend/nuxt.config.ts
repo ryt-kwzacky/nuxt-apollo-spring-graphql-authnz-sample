@@ -1,3 +1,17 @@
+// .envファイルを読み込むための設定
+// @see https://github.com/nuxt-community/dotenv-module
+require('dotenv').config()
+
+const {
+  FIREBASE_API_KEY,
+  FIREBASE_AUTH_DOMAIN,
+  FIREBASE_DATABASE_URL,
+  FIREBASE_PROJECT_ID,
+  FIREBASE_STORAGE_BUCKET,
+  FIREBASE_MESSAGING_SENDER_ID,
+  FIREBASE_APP_ID,
+} = process.env
+
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
@@ -20,7 +34,12 @@ export default {
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: [
+    /*
+     * Firebase Javascript SDKの初期化用のプラグイン設定
+     */
+    '~/plugins/firebase',
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -36,6 +55,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/apollo',
+    ['@nuxtjs/dotenv', { path: '' }],
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
@@ -45,9 +65,18 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: 'http://localhost:8080/graphql',
+        httpEndpoint: 'http://localhost:8080/',
       },
     },
+  },
+  env: {
+    FIREBASE_API_KEY: FIREBASE_API_KEY || '',
+    FIREBASE_AUTH_DOMAIN: FIREBASE_AUTH_DOMAIN || '',
+    FIREBASE_DATABASE_URL: FIREBASE_DATABASE_URL || '',
+    FIREBASE_PROJECT_ID: FIREBASE_PROJECT_ID || '',
+    FIREBASE_STORAGE_BUCKET: FIREBASE_STORAGE_BUCKET || '',
+    FIREBASE_MESSAGING_SENDER_ID: FIREBASE_MESSAGING_SENDER_ID || '',
+    FIREBASE_APP_ID: FIREBASE_APP_ID || '',
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
